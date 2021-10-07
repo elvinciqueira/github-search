@@ -37,19 +37,19 @@ const HomePage = () => (
         </Grid>
       </Box>
       <Box
+        display={{xs: 'none', md: 'block', sm: 'none'}}
         flexBasis={['auto', 64]}
         order="-1"
-        display={{xs: 'none', md: 'block', sm: 'none'}}
       >
         <SideBar />
       </Box>
       <Box
+        display={{xs: 'none', md: 'block', sm: 'none'}}
         pr={3}
         width="15%"
         ml={3}
-        display={{xs: 'none', md: 'block', sm: 'none'}}
       >
-        <Select>
+        <Select placeholder="Ordernar por">
           <option>Option 1</option>
           <option>Option 2</option>
         </Select>

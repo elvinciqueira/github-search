@@ -49,7 +49,7 @@ export const Avatar = ({
       </StyledImage>
       {title && (
         <Flex flexDirection="column" justifyContent="center" ml={3}>
-          <Text>{title}</Text>
+          <Text color={props.textColor}>{title}</Text>
         </Flex>
       )}
     </Flex>

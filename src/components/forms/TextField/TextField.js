@@ -1,5 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {layout, space, compose} from 'styled-system'
 
@@ -24,5 +25,29 @@ const StyledInput = styled(Text)`
   ${compose(layout, space)}
 `
 export const TextField = React.forwardRef((props, ref) => {
-  return <StyledInput as="input" ref={ref} {...props} />
+  const {placeholder, name, onChange, value, type} = props
+
+  return (
+    <StyledInput
+      as="input"
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      {...props}
+      ref={ref}
+    />
+  )
 })
+
+TextField.defaultProps = {
+  onChange: () => {},
+}
+
+TextField.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.string.isRequired,
+}

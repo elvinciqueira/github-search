@@ -9,7 +9,7 @@ import {
   space,
   variant,
 } from 'styled-system'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 const defaultButtonStyles = {
   position: 'relative',
@@ -60,6 +60,11 @@ const buttonVariants = variant({
 })
 
 const StyledButton = styled.button`
+  ${(props) =>
+    props.isFullWidth &&
+    css`
+      width: 100%;
+    `};
   ${buttonVariants}
   ${compose(space, layout, flexbox, border, position)}
 `
