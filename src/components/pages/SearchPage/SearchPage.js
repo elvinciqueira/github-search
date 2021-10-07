@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useForm} from '../../../infra/hooks/forms/useForm'
+import {useAuth} from '../../../infra/hooks/auth/useAuth'
 import {Text} from '../../foundation/Text'
 import {TextField} from '../../forms/TextField'
 import {Button} from '../../commons/Button'
@@ -9,13 +10,9 @@ import {Avatar} from '../../commons/Avatar'
 import {githubService} from '../../../services/github/githubService'
 import {mapBoxService} from '../../../services/mapBox/mapBoxService'
 
-const scope = encodeURI('repo user')
-const client_id = process.env.REACT_APP_GITHUB_CLIENT_ID
-const redirect_uri = 'http://localhost:3000/home'
-const githubOauthUrl = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}`
-
 const SearchPage = () => {
-  const [coordinates, setCoordinates] = useState({})
+  const {loginWithGithub} = useAuth()
+  const [coordinates, setCoordinates] = useState({lat: -34.397, lng: 150.644})
   const [githubUser, setGithubUser] = useState({
     id: null,
     avatar: '',
@@ -47,11 +44,17 @@ const SearchPage = () => {
         coordinates={coordinates}
         isMarkerShown
         infoWindowContent={
-          <Text as="a" href={githubOauthUrl}>
+          <Text
+            as="a"
+            textDecoration="none"
+            href="#"
+            onClick={() => loginWithGithub(githubUser.username)}
+          >
             <Avatar
               src={githubUser?.avatar}
               title={githubUser?.username}
               textColor="darkBlue"
+              onClick={() => loginWithGithub(githubUser.username)}
             />
           </Text>
         }

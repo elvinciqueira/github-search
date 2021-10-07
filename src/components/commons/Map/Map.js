@@ -23,7 +23,7 @@ export const Map = compose(
     {props.isMarkerShown && (
       <Marker position={props.coordinates} onClick={props.onToggleOpen}>
         {props.open && (
-          <InfoWindow onCloseClick={props.onToggleOpen}>
+          <InfoWindow onCloseClick={props.onToggleOpen} onClick={props.onClick}>
             {props.infoWindowContent}
           </InfoWindow>
         )}
