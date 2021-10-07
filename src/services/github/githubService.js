@@ -47,6 +47,7 @@ export const githubService = {
             language: repo.language,
             stars: repo.stargazers_count,
             forks: repo.forks,
+            updatedAt: repo.updated_at,
           })),
         }
       })

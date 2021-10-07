@@ -7,7 +7,12 @@ import {Flex} from '../../foundation/layout/Flex'
 export default function RepoCard({name, description, url}) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <Box backgroundColor="rgba(0, 0, 0, 0.16)" padding={4} borderRadius="8px">
+      <Box
+        backgroundColor="rgba(0, 0, 0, 0.16)"
+        padding={3}
+        width="100%"
+        borderRadius="8px"
+      >
         <Flex justifyContent="space-between" alignItems="center">
           <Text as="h2" variant="title">
             {name}

@@ -1,6 +1,5 @@
 import {initializeApp} from 'firebase/app'
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyDB6iZ3Z4bBZvw0cmxPq6Ho7bGARgj1bsg',
   authDomain: 'coherent-ranger-234413.firebaseapp.com',
