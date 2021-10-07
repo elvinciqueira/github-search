@@ -23,6 +23,11 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
   }
+  #root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
   img {
     max-width: 100%;
     height: auto;

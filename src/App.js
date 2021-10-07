@@ -1,8 +1,14 @@
+import {BrowserRouter} from 'react-router-dom'
+import {UIProvider} from '../src/theme/provider/UIProvider'
+import Routes from '../src/infra/routes'
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
+    <UIProvider>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </UIProvider>
   )
 }
 
