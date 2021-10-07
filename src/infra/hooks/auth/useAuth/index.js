@@ -15,12 +15,18 @@ const AuthProvider = ({children}) => {
   const [userInfo, setUserInfo] = React.useState({})
 
   function loginWithGithub(username) {
-    githubService.loginOauth(username).then((userInfo) => {
-      if (userInfo) {
-        setUserInfo(userInfo)
-        history.push('/home')
-      }
-    })
+    githubService
+      .loginOauth(username)
+      .then((userInfo) => {
+        if (userInfo) {
+          setUserInfo(userInfo)
+          history.push('/home')
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        alert('Ooops erro ao autenticar no GitHub')
+      })
   }
 
   return (
