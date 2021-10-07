@@ -8,6 +8,7 @@ import {Text} from '../../foundation/Text'
 const StyledInput = styled(Text)`
   width: 100%;
   color: #fff;
+  border-radius: ${({theme}) => get(theme, 'borderRadius')};
   background: rgba(255, 255, 255, 0.16);
   border: 0;
   padding: 10px 16px;
@@ -15,6 +16,11 @@ const StyledInput = styled(Text)`
   &:hover {
     background: rgba(255, 255, 255, 0.24);
   }
+
+  option {
+    color: black;
+  }
+
   ${compose(layout, space)}
 `
 export const TextField = React.forwardRef((props, ref) => {

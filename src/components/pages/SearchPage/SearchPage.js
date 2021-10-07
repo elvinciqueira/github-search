@@ -16,14 +16,9 @@ const SearchPage = () => {
             <TextField
               label="Search"
               name="search"
-              borderRadius="8px 0 0 8px"
               placeholder="Busque por um usuário"
             />
-            <Button
-              type="submit"
-              borderRadius="0px 8px 8px 0px"
-              padding="14px 16px"
-            >
+            <Button ml={2} type="submit">
               Search
             </Button>
           </Flex>

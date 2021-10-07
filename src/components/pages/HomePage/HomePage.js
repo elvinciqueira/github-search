@@ -1,37 +1,61 @@
 import {TextField} from '../../forms/TextField'
 import {Box} from '../../foundation/layout/Box'
+import {Grid} from '../../foundation/layout/Grid'
 import {Flex} from '../../foundation/layout/Flex'
-import {Logo} from '../../../theme/Logo'
-import {Profile} from '../../commons/Profile'
-
-import BaseTemplate from '../../templates/BaseTemplate'
 import Header from '../../patterns/Header'
-import MobileMenu from '../../patterns/MobileMenu'
+import {Profile} from '../../commons/Profile'
+import RepoCard from '../../commons/RepoCard'
+import {Select} from '../../forms/Select'
+
 import SideBar from '../../patterns/Sidebar'
 
 const HomePage = () => (
-  <BaseTemplate
-    header={
+  <Flex flexDirection="column" minHeight="100vh" px={3}>
+    <Box>
       <Header
-        leftContent={<Logo />}
         centerContent={
-          <Box display={{xs: 'none', md: 'block', sm: 'block'}}>
-            <TextField width={752} type="text" placeholder="Busque por algo" />
-          </Box>
+          <TextField
+            width={{xs: '100%', md: '50%'}}
+            mx="auto"
+            placeholder="Busque por algo"
+          />
         }
-        rightContent={
-          <>
-            <MobileMenu />
-            <Profile />
-          </>
-        }
+        rightContent={<Profile />}
       />
-    }
-  >
-    <Flex flex={1}>
-      <SideBar />
+    </Box>
+    <Flex flex={1} flexDirection={['column', 'row']}>
+      <Box flex={1} minWidth={0}>
+        <Grid
+          gridTemplateColumns={{xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)'}}
+          gridGap={3}
+        >
+          <RepoCard />
+          <RepoCard />
+          <RepoCard />
+          <RepoCard />
+          <RepoCard />
+        </Grid>
+      </Box>
+      <Box
+        flexBasis={['auto', 64]}
+        order="-1"
+        display={{xs: 'none', md: 'block', sm: 'none'}}
+      >
+        <SideBar />
+      </Box>
+      <Box
+        pr={3}
+        width="15%"
+        ml={3}
+        display={{xs: 'none', md: 'block', sm: 'none'}}
+      >
+        <Select>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </Select>
+      </Box>
     </Flex>
-  </BaseTemplate>
+  </Flex>
 )
 
 export default HomePage

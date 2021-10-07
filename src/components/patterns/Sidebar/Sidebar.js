@@ -1,25 +1,24 @@
-import {HiCode} from 'react-icons/hi'
-import {FaUsers} from 'react-icons/fa'
+import {AiFillHome, AiFillStar} from 'react-icons/ai'
 
-import {IconButton} from '../../forms/IconButton'
+import {IconButton} from '../../commons/IconButton'
 import {Flex} from '../../foundation/layout/Flex'
 import {Text} from '../../foundation/Text'
 
 const SideBar = () => (
-  <Flex as="aside" flexDirection="column" pl={4} mt={4}>
+  <Flex as="aside" width="265px" flexDirection="column" pl={4} mt={4}>
     <Text variant="sidebarTitle" mb={4}>
       Menu
     </Text>
     <Flex alignItems="center" mb={3}>
-      <IconButton icon={<HiCode color="white" size={20} />} />
+      <IconButton icon={<AiFillHome color="white" size={20} />} />
       <Text ml={3} variant="body">
-        Editor de código
+        Home
       </Text>
     </Flex>
     <Flex alignItems="center">
-      <IconButton icon={<FaUsers color="white" size={20} />} />
+      <IconButton icon={<AiFillStar color="white" size={20} />} />
       <Text ml={3} variant="body">
-        Comunidade
+        Projetos salvos
       </Text>
     </Flex>
   </Flex>
