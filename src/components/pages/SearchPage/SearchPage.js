@@ -9,8 +9,13 @@ import {Avatar} from '../../commons/Avatar'
 import {githubService} from '../../../services/github/githubService'
 import {mapBoxService} from '../../../services/mapBox/mapBoxService'
 
+const scope = encodeURI('repo user')
+const client_id = process.env.REACT_APP_GITHUB_CLIENT_ID
+const redirect_uri = 'http://localhost:3000/home'
+const githubOauthUrl = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}`
+
 const SearchPage = () => {
-  const [coordinates, setCoordinates] = useState({lat: -34.397, lng: 150.644})
+  const [coordinates, setCoordinates] = useState({})
   const [githubUser, setGithubUser] = useState({
     id: null,
     avatar: '',
@@ -42,11 +47,13 @@ const SearchPage = () => {
         coordinates={coordinates}
         isMarkerShown
         infoWindowContent={
-          <Avatar
-            src={githubUser?.avatar}
-            title={githubUser?.username}
-            textColor="darkBlue"
-          />
+          <Text as="a" href={githubOauthUrl}>
+            <Avatar
+              src={githubUser?.avatar}
+              title={githubUser?.username}
+              textColor="darkBlue"
+            />
+          </Text>
         }
         onToggleOpen={() => setOpen(!open)}
         open={open}

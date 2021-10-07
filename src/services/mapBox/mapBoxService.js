@@ -6,8 +6,11 @@ export const mapBoxService = {
     return fetch(`${MAP_BOX_API_URL}${location}.json?${ACCESS_TOKEN_MAP_BOX}`)
       .then((response) => response.json())
       .then((data) => {
-        const [lng, lat] = data.features[0].center
-        return {lat, lng}
+        if (data.features) {
+          const [lng, lat] = data.features[0].center
+          return {lat, lng}
+        }
+        return {lat: -34.397, lng: 150.644}
       })
   },
 }
