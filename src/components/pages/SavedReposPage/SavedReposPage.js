@@ -18,7 +18,6 @@ const SavedReposPage = () => {
   const [repos, setRepos] = useState(() => {
     const storagedRepositories = localStorage.getItem('@Github:repos')
     if (storagedRepositories) {
-      console.log(JSON.parse(storagedRepositories))
       return sortByDate(JSON.parse(storagedRepositories))
     }
     return []
