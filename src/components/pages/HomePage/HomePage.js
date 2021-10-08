@@ -49,7 +49,8 @@ const HomePage = () => {
 
   const handleFavorite = (selectedRepo) => {
     const repos = JSON.parse(localStorage.getItem('@Github:repos')) || []
-    const newRepos = [...repos, selectedRepo]
+    const removeDuplicates = repos.filter((repo) => repo.id !== selectedRepo.id)
+    const newRepos = [...removeDuplicates, selectedRepo]
     localStorage.setItem('@Github:repos', JSON.stringify(newRepos))
   }
 
