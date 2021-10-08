@@ -13,7 +13,7 @@ const lineHeights = {
 }
 
 const fonts = {
-  body: 'Inter',
+  body: 'Fira Code',
 }
 
 const fontWeight = {
@@ -31,7 +31,7 @@ export const theme = {
   fontSizes: [12, 16, 21],
   shadow: ['0 16 rgb(0, 0, 0, 0.24)'],
   fontWeight,
-  fontFamily: 'Inter',
+  fontFamily: 'Fira Code',
   lineHeights,
   letterSpacing,
   fonts,

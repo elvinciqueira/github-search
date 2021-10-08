@@ -19,6 +19,7 @@ const AuthProvider = ({children}) => {
       .loginOauth(username)
       .then((userInfo) => {
         if (userInfo) {
+          console.log('userInfo', userInfo)
           setUserInfo(userInfo)
           history.push('/home')
         }
