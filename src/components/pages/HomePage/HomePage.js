@@ -48,6 +48,12 @@ const HomePage = () => {
     setRepos(filteredRepos)
   }
 
+  const handleFavorite = (repo) => {
+    const repos = JSON.parse(localStorage.getItem('@Github:repos')) || []
+    const newRepos = [...repos, repo]
+    localStorage.setItem('@Github:repos', JSON.stringify(newRepos))
+  }
+
   return (
     <BaseTemplate
       header={
@@ -90,7 +96,7 @@ const HomePage = () => {
         gridTemplateColumns={{xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)'}}
         gridGap={3}
       >
-        <RepoList data={repos} />
+        <RepoList data={repos} onClick={handleFavorite} />
       </Grid>
     </BaseTemplate>
   )

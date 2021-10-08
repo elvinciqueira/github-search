@@ -1,7 +1,7 @@
 import RepoCard from '../../commons/RepoCard'
 
-export default function RepoList({data}) {
-  return data.map(({id, name, description, url}) => (
-    <RepoCard key={id} name={name} description={description} url={url} />
+export default function RepoList({data, onClick}) {
+  return data.map((repo) => (
+    <RepoCard key={repo.id} onClick={onClick} {...repo} />
   ))
 }

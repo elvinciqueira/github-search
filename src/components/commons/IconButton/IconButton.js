@@ -5,18 +5,18 @@ import {Button} from '../Button'
 export const IconButton = forwardRef(({icon, ...rest}, ref) => (
   <Button
     ref={ref}
-    {...rest}
     variant="filled"
     justifyContent="center"
     alignItems="center"
     borderRadius="16px"
+    {...rest}
   >
     {icon}
   </Button>
 ))
 
 IconButton.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
 }
 
 IconButton.displayName = 'IconButton'
