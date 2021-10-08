@@ -9,9 +9,7 @@ import SideBar from '../../patterns/Sidebar'
 import BaseTemplate from '../../templates/BaseTemplate'
 import * as _ from '../../../lib/functions'
 
-const sortByDate = _.sort(
-  (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt),
-)
+const sortByDate = _.sort((a, b) => a.updatedAt.localeCompare(b.updatedAt))
 
 const SavedReposPage = () => {
   const {userInfo} = useAuth()
