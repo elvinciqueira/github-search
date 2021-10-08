@@ -1,7 +1,5 @@
 import {useState} from 'react'
 import {useAuth} from '../../../infra/hooks/auth/useAuth'
-import {TextField} from '../../forms/TextField'
-import {Select} from '../../forms/Select'
 import {Avatar} from '../../commons/Avatar'
 import {Box} from '../../foundation/layout/Box'
 import {Grid} from '../../foundation/layout/Grid'
@@ -26,12 +24,18 @@ const SavedReposPage = () => {
     return []
   })
 
+  const handleUnfavorite = (repo) => {
+    const filteredRepos = repos.filter((r) => r.id !== repo.id)
+    setRepos(filteredRepos)
+    localStorage.setItem('@Github:repos', JSON.stringify(filteredRepos))
+  }
+
   return (
     <BaseTemplate
       header={
         <Header
           rightContent={
-            <Box display={{xs: 'none', md: 'block', sm: 'none'}}>
+            <Box display={{xs: 'none', md: 'block', sm: 'none'}} ml="auto">
               <Avatar
                 src={userInfo.owner?.avatar}
                 title={userInfo.owner?.username}
@@ -46,7 +50,7 @@ const SavedReposPage = () => {
         gridTemplateColumns={{xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)'}}
         gridGap={3}
       >
-        <RepoList data={repos} onClick={() => {}} />
+        <RepoList data={repos} onClick={handleUnfavorite} />
       </Grid>
     </BaseTemplate>
   )
