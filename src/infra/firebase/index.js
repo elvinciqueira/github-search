@@ -1,7 +1,9 @@
 import {initializeApp} from 'firebase/app'
 
+const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyDB6iZ3Z4bBZvw0cmxPq6Ho7bGARgj1bsg',
+  apiKey: API_KEY,
   authDomain: 'coherent-ranger-234413.firebaseapp.com',
   databaseURL: 'https://coherent-ranger-234413.firebaseio.com',
   projectId: 'coherent-ranger-234413',
