@@ -1,3 +1,4 @@
+import moment from 'moment'
 import {GithubAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
 const provider = new GithubAuthProvider()
 provider.addScope('repo', 'user')
@@ -47,7 +48,7 @@ export const githubService = {
             language: repo.language,
             stars: repo.stargazers_count,
             forks: repo.forks,
-            updatedAt: repo.updated_at,
+            updatedAt: moment(repo.updated_at).format('DD/MM/YYYY'),
           })),
         }
       })
