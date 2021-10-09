@@ -40,16 +40,18 @@ export const githubService = {
             avatar: data[0].owner.avatar_url,
             username: data[0].owner.login,
           },
-          repos: data.map((repo) => ({
-            id: repo.id,
-            name: repo.name,
-            description: repo.description,
-            url: repo.html_url,
-            language: repo.language,
-            stars: repo.stargazers_count,
-            forks: repo.forks,
-            updatedAt: moment(repo.updated_at).format('DD/MM/YYYY'),
-          })),
+          repos: data
+            .map((repo) => ({
+              id: repo.id,
+              name: repo.name,
+              description: repo.description,
+              url: repo.html_url,
+              language: repo.language,
+              stars: repo.stargazers_count,
+              forks: repo.forks,
+              updatedAt: moment(repo.updated_at).format('DD/MM/YYYY'),
+            }))
+            .sort((a, b) => a.updatedAt.localeCompare(b.updatedAt)),
         }
       })
       .catch((error) => {

@@ -22,7 +22,7 @@ const HomePage = () => {
   const {userInfo} = useAuth()
   const [search, setSearch] = useState('')
   const [selected, setSelected] = useState('Data')
-  const [repos, setRepos] = useState(sortByDate([...(userInfo.repos || [])]))
+  const [repos, setRepos] = useState([...(userInfo.repos || [])])
 
   const sortBy = (propField) => {
     const sorted = {
